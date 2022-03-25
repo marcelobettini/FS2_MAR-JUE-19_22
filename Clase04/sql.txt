@@ -1,0 +1,23 @@
+CREATE DATABASE api;
+
+USE api;
+
+CREATE TABLE users (
+id int NOT NULL AUTO_INCREMENT,
+name varchar(255),
+userName varchar(255),
+email varchar(255),
+PRIMARY KEY(id)
+);
+
+insert into users values(null, "Leanne Graham", "Bret", "sincere@april.biz");
+insert into users values(null, "Ervin Howell", "Antonette", "shanna@melissa.tv");
+insert into users values(null, "Clementine Bauch", "Samantha", "nathan@yesenia.net");
+insert into users values(null, "Patricia Lebsack", "Karianne", "julianne.oconner@kory.org");
+insert into users values(null, "Chelsey Dietrich", "Kamren", "lucio_hettinger@annie.ca");
+insert into users values(null, "Dennis Schulist", "Leopoldo_Corkery", "karley_dach@jasper.info");
+insert into users values(null, "Kurtis Weissnat", "Elwyn.Skiles", "Telly.hoeger@billy.biz");
+insert into users values(null, "Nicholas Runolfsdottir V", "Maxime_Nienow","sherwood@rosamond.me");
+insert into users values(null, "Glenna Reichert", "Delphine","chaim_mcdermott@dana.io");
+insert into users values(null, "Clementina DuBuque", "Moriah.Stanton", "rey.padberg@karina.biz");
+
