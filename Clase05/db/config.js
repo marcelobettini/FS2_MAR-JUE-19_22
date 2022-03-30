@@ -11,7 +11,6 @@ const connection = mysql.createConnection({
 connection.connect((err) => {
     err ? console.warn("No conectado", { "Error": err.message }) : console.dir("Conexión establecida...")
 })
-connection.end()
 
 connection.query = util.promisify(connection.query)
 

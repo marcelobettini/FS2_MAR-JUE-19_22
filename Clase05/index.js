@@ -24,6 +24,16 @@ server.get("/", (req, res) => {
 server.use("/users", require("./users/usersRoute"))
 
 //catch all route (404)
-server.use((req, res) => {
-    res.status(404).json({ message: "Resource not found" })
+server.use((req, res, next) => {
+    let error = new Error("Resource not found");
+    error.status = 404
+    next(error)
+})
+
+//Error handler
+server.use((error, req, res, next) => {
+    if (!error.status) {
+        error.status = 500
+    }
+    res.status(error.status).json({ status: error.status, message: error.message })
 })

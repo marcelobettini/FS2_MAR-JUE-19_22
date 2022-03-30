@@ -39,7 +39,7 @@ server.get("/users/:id", (req, res, next) => {
 //post new user
 server.post("/users", (req, res) => {
     const { name, username, email } = req.body
-    if (!name || !username || (!email && !name === "") || username === "" || email === "") {
+    if ((!name || !username || !email) && (!name === "" || username === "" || email === "")) {
         res.status(400).json({ message: "All fields required" })
     } else {
         users.push({...req.body })
