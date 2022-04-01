@@ -5,7 +5,7 @@ const notNumber = (id, next) => {
         next(error)
         return true
     } else {
-        return false
+        return false //si omitimos esto, retornará undefined y, como es un "falsy value", funcionará igual que si retornamos false de manera explícita.
     }
 }
 module.exports = notNumber
