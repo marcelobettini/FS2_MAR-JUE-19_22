@@ -20,12 +20,11 @@ const listOne = async(req, res, next) => {
 
 //register
 const register = async(req, res, next) => {
-    const hashedPassword = await encrypt(req.body.password)
-    const dbResponse = await addNewUser({...req.body, password: hashedPassword })
-    dbResponse instanceof Error ? next(dbResponse) : res.sendStatus(201) //esto es un atajo de status + send, con el mensaje por defecto en el send(...) => es el mensaje inherente al código de estado
-}
-
-//login
+        const hashedPassword = await encrypt(req.body.password)
+        const dbResponse = await addNewUser({...req.body, password: hashedPassword })
+        dbResponse instanceof Error ? next(dbResponse) : res.sendStatus(201) //esto es un atajo de status + send, con el mensaje por defecto en el send(...) => es el mensaje inherente al código de estado
+    }
+    //login
 const login = async(req, res, next) => {
     const dbResponse = await loginUser(req.body.email);
     if (!dbResponse.length) return next();
