@@ -1,65 +1,63 @@
-const Pool = require("mysql/lib/Pool");
 const connection = require("../db/config");
 
-const getAllUsers = async() => {
+const getAllUsers = () => {
     const query = "SELECT * FROM users"
     try {
-        return await connection.query(query)
+        return connection.query(query)
     } catch (error) {
         error.message = error.code
         return error
     }
 }
 
-const getUserById = async(id) => {
+const getUserById = (id) => {
     const query = `SELECT * FROM users WHERE id = ${id}`
     try {
-        return await connection.query(query)
+        return connection.query(query)
     } catch (error) {
         error.message = error.code
         return error
     }
 }
 
-const addNewUser = async(user) => {
+const addNewUser = (user) => {
     const query = `INSERT INTO users SET ?`
     try {
-        return await connection.query(query, user)
+        return connection.query(query, user)
     } catch (error) {
         error.message = error.code
         return error
     }
 }
 
-const loginUser = async(email) => {
+const loginUser = (email) => {
     const query = `SELECT * FROM users WHERE email = '${email}'`
     try {
-        return await connection.query(query)
+        return connection.query(query)
     } catch (error) {
         error.message = error.code
         return error
     }
 }
 
-const deleteUserById = async(id) => {
+const deleteUserById = (id) => {
     const query = `DELETE FROM users WHERE id = ${id}`
     try {
-        return await connection.query(query)
+        return connection.query(query)
     } catch (error) {
         error.message = error.code
         return error
     }
 }
 
-const editUserById = async(id, user) => {
+const editUserById = (id, user) => {
     const query = `UPDATE users SET ? WHERE id = ${id}`
     try {
-        return await connection.query(query, user)
+        return connection.query(query, user)
     } catch (error) {
         error.message = error.code
         return error
     }
 }
-
 
 module.exports = { getAllUsers, getUserById, addNewUser, deleteUserById, editUserById, loginUser }

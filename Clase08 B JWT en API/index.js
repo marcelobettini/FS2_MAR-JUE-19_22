@@ -1,14 +1,16 @@
+const cors = require("cors")
 require("dotenv").config()
 require("./db/config")
 const express = require("express");
-const port = process.env.port || 3000
+const PORT = process.env.PORT || 3000
 const server = express();
 server.use(express.json())
 server.use(express.urlencoded({ extended: true }))
+server.use(cors())
 server.use(express.static("storage"))
-server.listen(port, (err) => {
+server.listen(PORT, (err) => {
     err ? console.warn(`Hubo un error {
-        message: ${err} }`) : console.log(`Servidor corre en http://localhost:${port}`)
+        message: ${err} }`) : console.log(`Servidor corre en http://localhost:${PORT}`)
 })
 
 
