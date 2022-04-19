@@ -1,0 +1,29 @@
+<section class="mt-5 container">
+    <div class="row justify-content-center">
+        <h2 class="text-center my-5">Password Recovery</h2>
+        <div class="col-10 col-lg-5">
+            <form class="border border-dark rounded p-4" action="/users/reset/{{token}}" method="post">
+                <input type="text" value='{{tokenStatus.name}}' autocomplete="username" hidden>
+                <input class="form-control mt-3" type="password" maxlength="15" placeholder="Type new password"
+                    autocomplete="new-password" name="password_1" autofocus>
+                <div id="passwordHelpBlock" class="form-text mb-4">
+                    Your password must be 8-15 characters long.
+                </div>
+                <input class="form-control" type="password" maxlength="15" placeholder="Repeat new password"
+                    autocomplete="new-password" name="password_2">
+                <div id="passwordHelpBlock" class="form-text mb-5">
+                    Both passwords must be identical.
+                </div>
+                {{#each arrWarnings}}
+                <div class="alert alert-danger" role="alert">
+                    {{msg}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {{/each}}
+                <div class="d-flex justify-content-center">
+                    <input type="submit" class="btn btn-success" value="send new password">
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
