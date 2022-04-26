@@ -1,17 +1,21 @@
 const mysql = require("mysql")
 const util = require("util")
 
-const connection = mysql.createConnection({
+const pool = mysql.createPool({
     host: process.env.db_host,
     database: process.env.db_name,
     user: process.env.db_user,
     password: process.env.db_pass
 });
 
-connection.connect((err) => {
-    err ? console.warn("No conectado", { "Error": err.message }) : console.dir("Conexión establecida...")
+pool.getConnection((err, connection) => {
+    if (err) console.warn("No conectado", { "Error": err.message })
+    else {
+        console.dir("Conexión establecida...")
+        pool.releaseConnection(connection)
+    }
 })
 
-connection.query = util.promisify(connection.query)
+pool.query = util.promisify(pool.query)
 
-module.exports = connection
+module.exports = pool

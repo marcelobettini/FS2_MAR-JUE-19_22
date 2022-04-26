@@ -1,26 +1,26 @@
-const connection = require("../db/config");
+const pool = require("../db/config");
 
-const addNewPost = (post) => {
+const addNewPost = async (post) => {
     const query = "INSERT INTO posts SET ?";
     try {
-        return connection.query(query, post)
+        return await pool.query(query, post)
     } catch (error) {
         error.message = error.code
     }
 }
-const getPostsWith = (string) => {
+const getPostsWith = async (string) => {
     const query = `SELECT * FROM posts WHERE title LIKE '%${string}%'`
     try {
-        return connection.query(query)
+        return await pool.query(query)
     } catch (error) {
         error.message = error.code
     }
 }
 
-const getAllPosts = () => {
+const getAllPosts = async () => {
     const query = "SELECT * FROM posts";
     try {
-        return connection.query(query)
+        return await pool.query(query)
     } catch (error) {
         error.message = error.code
     }
