@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react"
 import { Container, Row, Button } from "react-bootstrap";
+import Users from "./components/Users";
+import Posts from "./components/Posts";
+import Comments from "./components/Comments";
+
 
 function App() {
   const BASE = "https://jsonplaceholder.typicode.com/"
@@ -35,42 +39,9 @@ function App() {
             users
           </Button>
           <section>
-            {endpoint === "users" &&
-              data.map((el) => {
-                return (
-                  <div key={el.id} className="fw-bold">
-                    <p>Name: <span className="fw-normal">{el.name}</span></p>
-                    <p>Email: <span className="fw-normal">{el.email}</span></p>
-                    <p>Username: <span className="fw-normal">{el.username}</span></p>
-                    <hr />
-                  </div>
-                )
-              })}
-            {
-              endpoint === "posts" &&
-              data.map((el) => {
-                return (
-                  <div key={el.id}>
-                    <h4>{el.title}</h4>
-                    <p>{el.body}</p>
-                    <hr />
-                  </div>
-                )
-              })
-            }
-            {
-              endpoint === "comments" &&
-              data.map((el) => {
-                return (
-                  <div key={el.id}>
-                    <h4 className="mb-3">{el.name}</h4>
-                    <span className="border border-1 border-dark rounded p-1"> <span className="bg-dark text-white pe-1"> Comment by </span><span className="text-danger ps-1">{el.email}</span></span>
-                    <p className="mt-3">{el.body}</p>
-                    <hr />
-                  </div>
-                )
-              })
-            }
+            {endpoint === "users" && data.map(el => <Users key={el.id} el={el} />)}
+            {endpoint === "posts" && data.map(el => <Posts key={el.id} el={el} />)}
+            {endpoint === "comments" && data.map(el => <Comments key={el.id} el={el} />)}
           </section>
         </Row>
       </Container>
