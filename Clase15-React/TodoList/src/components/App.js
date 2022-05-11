@@ -17,7 +17,6 @@ function App() {
         const description = todoRef.current.value;
         if (description === "") return;
         if (!editMode) {
-
             const newTodo = {
                 id: uuid(),
                 description,

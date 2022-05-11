@@ -1,0 +1,11 @@
+body {
+  text-align: center;
+  zoom:1.5
+}
+
+.child {
+  border: 1px solid;
+  background-color: tomato;
+  color: white;
+  padding: 1em;
+}
