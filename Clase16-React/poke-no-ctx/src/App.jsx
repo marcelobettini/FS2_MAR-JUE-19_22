@@ -15,7 +15,7 @@ function App() {
       .then(res => res.json())
       .then(info => {
         setData(info)
-        console.log(data)
+
       })
   }, [])
   if (!data) return <div>Loading...</div>
@@ -30,7 +30,7 @@ function App() {
         gridColumnsGap: "3rem"
       }}>
         <div>
-          <PokemonFilter filter={filter} setFilter={setFilter} />
+          <PokemonFilter setFilter={setFilter} />
           <table width="100%">
             <thead>
               <tr>
