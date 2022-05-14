@@ -16,7 +16,7 @@ const pokemonReducer = (state, action) => {
                 selectedPokemon: action.payload
             }
         default:
-            state
+            return state
     }
 }
 export default pokemonReducer
