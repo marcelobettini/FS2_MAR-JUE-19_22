@@ -6,6 +6,7 @@ import PokemonTable from './components/PokemonTable'
 import PokemonInfo from './components/PokemonInfo'
 import pokemonContext from './pokemonContext'
 function App() {
+  console.log("App rendered")
   const [state, dispatch] = useReducer(pokemonReducer, { data: [], filter: "", selectedPokemon: null })
 
   useEffect(() => {

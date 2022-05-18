@@ -1,0 +1,118 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #556990;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+input,
+select {
+  font-size: 1.5rem;
+  margin: 0.4rem 0;
+}
+input {
+  width: 4ch;
+  text-align: center;
+}
+
+button {
+  width: 20ch;
+  appearance: none;
+  border: none;
+  background: none;
+  font-size: 1.5rem;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin: 0.2rem 0;
+  outline: none;
+  border: 2px solid transparent;
+  color: rgb(25, 8, 58);
+  padding-bottom: 4px;
+  cursor: pointer;
+  background-color: rgba(167, 163, 173, 0.336);
+  border-radius: 2px;
+  transition: all 0.15s;
+}
+
+button:hover,
+.button:focus {
+  border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+button:active {
+  background-color: rgba(112, 76, 182, 0.2);
+}
+
+.asyncButton {
+  position: relative;
+  margin-left: 8px;
+}
+
+.asyncButton:after {
+  content: "";
+  background-color: rgba(228, 215, 42, 0.5);
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  transition: width 3s linear, opacity 2s ease 3s;
+}
+
+.asyncButton:active:after {
+  width: 0%;
+  opacity: 1;
+  transition: 0s;
+}
+
+table img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+table {
+  border: 1px solid;
+  text-align: left;
+  border-collapse: collapse;
+  width: 70vw;
+}
+
+thead th {
+  padding: 0.3em 1em;
+}
+tbody {
+  background-color: burlywood;
+}
+td {
+  padding: 1rem;
+}

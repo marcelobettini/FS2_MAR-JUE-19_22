@@ -1,17 +1,27 @@
-import React, { useContext } from "react";
+import { useEffect } from "react"
 import PokemonRow from "./PokemonRow"
-import pokemonContext from "../pokemonContext"
+import { useDispatch, useSelector } from "react-redux"
+import { setData } from "../redux/pokemonSlice"
+
 import { Paper, TableContainer, Table, TableHead, TableBody, TableRow, TableCell } from "@mui/material"
+
 const PokemonTable = () => {
-    console.log("PokemonTable rendered")
-    const { state: { data, filter } } = useContext(pokemonContext)
+    const { data, filter } = useSelector((state) => state.pokemon)
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        fetch("http://localhost:3001/pokemon.json")
+            .then(res => res.json())
+            .then(info => dispatch(setData(info)))
+    }, [])
+    if (!data) return <div>Loading...</div>
     return (
-        <TableContainer component={Paper} sx={{ display: 'flex', mt: '2em' }}>
+        <TableContainer component={Paper}>
             <Table>
                 <TableHead>
                     <TableRow>
-                        <TableCell align="center">Name</TableCell>
-                        <TableCell align="center">Type</TableCell>
+                        <TableCell >Name</TableCell>
+                        <TableCell >Type</TableCell>
                         <TableCell align="center">Action</TableCell>
                     </TableRow>
                 </TableHead>

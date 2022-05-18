@@ -3,6 +3,7 @@ import React, { useContext } from 'react'
 import pokemonContext from "../pokemonContext";
 
 const PokemonRow = ({ pokemon }) => {
+  console.log("PokemonRow rendered")
   const { dispatch } = useContext(pokemonContext)
   return (
     <>
