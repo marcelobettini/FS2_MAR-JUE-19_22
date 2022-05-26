@@ -4,8 +4,10 @@ function App() {
 
 
   return (
+    <>
 
-    <SignUpForm />
+      <SignUpForm />
+    </>
   )
 }
 

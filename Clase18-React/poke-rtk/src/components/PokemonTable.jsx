@@ -10,7 +10,7 @@ const PokemonTable = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        fetch("http://localhost:3001/pokemon.json")
+        fetch('https://reactstanleyhead.000webhostapp.com/pokemon.json')
             .then(res => res.json())
             .then(info => dispatch(setData(info)))
     }, [])
