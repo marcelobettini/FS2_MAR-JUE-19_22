@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>WebSocket & Node JS</title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="my-4">
+            <h1 class="text-center">WebSocket Chat</h1>
+        </header>
+        <div class="row">
+            <div class="col-sm-6 my-4 text-center">
+                <form>
+                    <label for="outMsg" class="form-label">Outgoing message</label>
+                    <input type="text" id="outMsg" name="outMsg" class="form-control">
+                    <input type="submit" class="btn btn-dark mt-4" value="send">
+                </form>
+            </div>
+            <div class="col-sm-6 my-4 text-center">
+                <label for="inMsg" class="form-label">Incoming messages</label>
+                <textarea class="form-control" name="inMsg" id="inMsg" cols="30" rows="10" disabled></textarea>
+            </div>
+        </div>
+
+        <script>
+            //el primer param es la referencia al puerto donde corre el servidor, ws = http ; wss = https
+            const client = new WebSocket('ws://localhost:3000', 'echo-protocol')
+
+            client.onmessage = (e) => {
+                inMsg.innerHTML += e.data + "\n"
+            }
+
+            document.querySelector("form").addEventListener("submit", (e) => {
+                e.preventDefault();
+                client.send(outMsg.value)
+            })
+        </script>
+
+</body>
+
+</html>
