@@ -18,16 +18,32 @@
     <div class="row justify-content-center">
       <div id="users" class="col-12 col-sm8 col-md-6 bg-black text-white py-2 px-4"></div>
     </div>
-    <form id="form" class="col-10 col-md-5">
+    <form id="formLogin" class="col-10 col-md-5">
       <label for="email">Email:</label>
       <input class="form-control" type="email" name="email" id="email" autocomplete="username">
       <label for="password">Password:</label>
       <input class="form-control" type="password" name="password" id="password" autocomplete="current-password">
-      <input class="btn border-1 border-success" type="submit" value="Login">
+      <input class="btn border-1 border-success my-2" type="submit" value="Login">
     </form>
-    <div id="usuarios">
+    <section class="bg-light border border-3 p-2 row">
+      <button id="btnGetPosts" class="btn btn-lg btn-warning my-2">Get Posts</button>
+      <div class="col-6" id="posts"></div>
+      <form class="col-6" id="formPosts">
+        <label for="userid" class="form-label">User ID:
+          <input type="text" name="userid" id="userid" class="form-control">
+        </label>
+        <br>
+        <label for="title" class="form-label">Title:
+          <input type="text" name="title" id="title" class="form-control">
+        </label>
+        <br>
 
-    </div>
+        <label for="body" class="form-label">Body:</label>
+        <textarea name="body" id="body" class="form-control"></textarea>
+        <input type="submit" value="Publish" class="btn btn-success my-2">
+      </form>
+    </section>
+
   </div>
   <script src="app.js"></script>
 </body>
